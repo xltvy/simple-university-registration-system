@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<title>Accounts</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="wrapper">
+        <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
+            <h1> Welcome to SimpleBoun Course Registration Database.</h1>
+            <p>
+                Choose login type to proceed.
+            </p>
+        </div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="d-flex justify-content-around" style="margin-top: 20px">           
+				{% block content %}
+                    <h2>Login to your account</h2>
+                    <p class="lead">Select below the type of account you want to log in</p>
+                    <a href="{% url 'login-student' %}" class="btn btn-student btn-lg" role="button">Student</a>
+                    <a href="{% url 'login-instructor' %}" class="btn btn-instructor btn-lg" role="button">Instructor</a>
+                    <a href="{% url 'login-dbmanager' %}" class="btn btn-dbmanager btn-lg" role="button">Database Manager</a>
+                {% endblock %}          
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  	<title>Add Prerequisite</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+        }
+        form { 
+            margin: 0 auto; 
+            width:250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
+            <h2> You can add a prerequisite to a course by providing its Course ID and the Course ID of the prerequisite.</h2>
+    </div>
+    {% if action_fail %}
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Adding prerequisite failed</h4>
+    </div>
+    {% endif %}
+    <div class="center">
+        <form id="addprereqform" class="form-group" method="POST" action="{%url 'addPrereq' %}">
+                {%csrf_token%}
+                <br>
+                <label>Add a course:</label>
+                <br>
+                <input type="text" name="c_id_after" placeholder="Course ID" required>
+                <br>
+                <input type="text" name="c_id_before" placeholder="Course ID of Prerequisite" required>
+                <br>
+                <input type="submit" name="submit" value="Add">
+                <br>
+        </form>
+    </div>
+    <a href="{%url 'instructor-home' %}"> <p style="text-align:center">Back</p></a>
+</body>
+</html>

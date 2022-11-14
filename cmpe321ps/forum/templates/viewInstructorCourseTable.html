@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  	<title>View Courses</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+        }
+        form { 
+            margin: 0 auto; 
+            width:250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
+            <h2> You can view the courses given by the instructor with the username {{username}} below.</h2>
+    </div>
+    {% if action_fail %}
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Viewing courses given by the instructor failed</h4>
+    </div>
+    {% endif %}
+    <div class="container">
+        <table class="center">
+            <colgroup>
+                <col span="1" style="width: 10%;">
+                <col span="1" style="width: 60%;">
+                <col span="1" style="width: 10%;">
+                <col span="1" style="width: 20%;">
+                <col span="1" style="width: 10%;">
+            </colgroup>
+            <tr>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Classroom ID</th>
+                <th>Campus</th>
+                <th>Time Slot</th>
+            </tr>
+            {% for row in results %}
+            <tr>
+                {% for value in row %}
+                <td>
+                    {{value}}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <a href="{%url 'view-inst-course' %}"> <p style="text-align:center">Back</p></a>
+</body>
+</html>

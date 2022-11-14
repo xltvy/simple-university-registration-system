@@ -1,0 +1,57 @@
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path('', views.welcome, name='welcome'),
+
+    path('login-student', views.student_index, name="login-student"),
+    path('login-student/attempt', views.student_login, name='student_login'),
+    path('student-home', views.student_home, name="student-home"),
+    path('view-all-courses', views.view_all_courses, name="view-all-courses"),
+    path('take-course', views.take_course, name="take-course"),
+    path('takeCourse', views.takeCourse, name="takeCourse"),
+    path('view-taken-courses', views.view_taken_courses, name="view-taken-courses"),
+    path('search-course', views.search_course, name="search-course"),
+    path('searchCourse', views.searchCourse, name="searchCourse"),
+    path('filter-courses', views.filter_courses, name="filter-courses"),
+    path('filterCourses', views.filterCourses, name="filterCourses"),
+
+    path('login-instructor', views.instructor_index, name="login-instructor"),
+    path('login-instructor/attempt', views.instructor_login, name='instructor_login'),
+    path('instructor-home', views.instructor_home, name="instructor-home"),
+    path('view-avl-classroom', views.view_avl_classroom, name="view-avl-classroom"),
+    path('viewAvlClassroom', views.viewAvlClassroom, name='viewAvlClassroom'),
+    path('add-course', views.add_course, name="add-course"),
+    path('addCourse', views.addCourse, name="addCourse"),
+    path('add-prereq', views.add_prereq, name="add-prereq"),
+    path('addPrereq', views.addPrereq, name="addPrereq"),
+    path('view-given-courses', views.view_given_courses, name="view-given-courses"),
+    path('view-all-stu', views.view_all_stu, name="view-all-stu"),
+    path('viewAllStudents', views.viewAllStudents, name="viewAllStudents"),
+    path('update-course-name', views.update_course_name, name="update-course-name"),
+    path('updateCourseName', views.updateCourseName, name="updateCourseName"),
+    path('give-grade', views.give_grade, name="give-grade"),
+    path('giveGrade', views.giveGrade, name="giveGrade"),
+
+    path('login-dbmanager', views.dbmanager_index, name="login-dbmanager"),
+    path('login-dbmanager/attempt', views.dbmanager_login, name='dbmanager_login'),
+    path('dbmanager-home', views.dbmanager_home, name="dbmanager-home"),
+    path('add-student', views.add_student, name="add-student"),
+    path('addStudent', views.addStudent, name="addStudent"),
+    path('add-instructor', views.add_instructor, name="add-instructor"),
+    path('addInstructor', views.addInstructor, name="addInstructor"),
+    path('delete-student', views.delete_student, name="delete-student"),
+    path('deleteStudent', views.deleteStudent, name="deleteStudent"),
+    path('update-ins-title', views.update_ins_title, name="update-ins-title"),
+    path('updateTitle', views.updateTitle, name="updateTitle"),
+    path('view-students', views.view_students, name="view-students"),
+    path('view-instructors', views.view_instructors, name="view-instructors"),
+    path('view-stu-grade', views.view_stu_grade, name="view-stu-grade"),
+    path('viewGrades', views.viewGrades, name='viewGrades'),
+    path('view-inst-course', views.view_inst_course, name="view-inst-course"),
+    path('viewInstructorCourse', views.viewInstructorCourse, name='viewInstructorCourse'),
+    path('view-avg-grade', views.view_avg_grade, name="view-avg-grade"),
+    path('viewAvgGrade', views.viewAvgGrade, name="viewAvgGrade"),
+    
+]

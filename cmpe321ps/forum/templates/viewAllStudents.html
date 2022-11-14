@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  	<title>View All Students</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+        }
+        form { 
+            margin: 0 auto; 
+            width:250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
+            <h2> You can view all students who added a specific course of yours.</h2>
+    </div>
+    {% if action_fail %}
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Viewing all students failed</h4>
+    </div>
+    {% endif %}
+    <div class="center">
+        <form id="viewallstudentsform" class="form-group" method="POST" action="{%url 'viewAllStudents' %}">
+                {%csrf_token%}
+                <br>
+                <label>View all the students who added the course with the ID:</label>
+                <br>
+                <input type="text" name="course_id" placeholder="Course ID" required>
+                <br>
+                <input type="submit" name="submit" value="View Students">
+                <br>
+        </form>
+    </div>
+    <a href="{%url 'instructor-home' %}"> <p style="text-align:center">Back</p></a>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<title>Dashboard Instructor</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="wrapper">
+        <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
+            <h1> Welcome to SimpleBoun Course Registration Database.</h1>
+            <p>
+                Instructor Dashboard
+            </p>
+        </div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="d-flex justify-content-around" style="margin-top: 20px">           
+				{% block content %}
+                    <h2>Instructors' operations are listed below:</h2>
+                    <p class="lead">Select an operation you want to perform.</p>
+                    <a href="{% url 'view-avl-classroom' %}" class="btn btn-i1 btn-lg" role="button">View available classrooms</a>
+                    <a href="{% url 'add-course' %}" class="btn btn-i2 btn-lg" role="button">Add course</a>
+                    <a href="{% url 'add-prereq' %}" class="btn btn-i3 btn-lg" role="button">Add prerequisite</a>
+                    <a href="{% url 'view-given-courses' %}" class="btn btn-i4 btn-lg" role="button">View given courses</a>
+                    <a href="{% url 'view-all-stu' %}" class="btn btn-i5 btn-lg" role="button">View all students of a course</a>
+                    <a href="{% url 'update-course-name' %}" class="btn btn-i6 btn-lg" role="button">Update the name of the course</a>
+                    <a href="{% url 'give-grade' %}" class="btn btn-i7 btn-lg" role="button">Give grade</a>
+                {% endblock %}          
+			</div>
+		</div>
+	</div>
+    <a href="{%url 'welcome' %}"> <p style="text-align:center">Logout</p></a>
+</body>
+</html>

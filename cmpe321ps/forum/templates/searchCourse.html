@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  	<title>Search Course</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+        }
+        form { 
+            margin: 0 auto; 
+            width:250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
+            <h2> You can search courses by providing a keyword below.</h2>
+    </div>
+    {% if action_fail %}
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Course search failed</h4>
+    </div>
+    {% endif %}
+    <div class="center">
+        <form id="searchcourseform" class="form-group" method="POST" action="{%url 'searchCourse' %}">
+                {%csrf_token%}
+                <br>
+                <label>Specify the keyword:</label>
+                <br>
+                <input type="text" name="keyword" placeholder="Keyword" required>
+                <br>
+                <input type="submit" name="submit" value="Search">
+                <br>
+        </form>
+    </div>
+    <a href="{%url 'student-home' %}"> <p style="text-align:center">Back</p></a>
+</body>
+</html>

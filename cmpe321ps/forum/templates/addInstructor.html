@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  	<title>Add Instructor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+        }
+        form { 
+            margin: 0 auto; 
+            width:250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
+            <h2> You can add a new instructor below. You should provide username, password, name, surname, e-mail, department ID, and title.</h2>
+    </div>
+    {% if action_fail %}
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Adding instructor failed</h4>
+    </div>
+    {% endif %}
+    <div class="center">
+        <form id="addinstructorform" class="form-group" method="POST" action="{%url 'addInstructor' %}">
+                {%csrf_token%}
+                <br>
+                <label>Add an instructor:</label>
+                <br>
+                <input type="text" name="i_username" placeholder="Username" required>
+                <br>
+                <input type="text" name="i_password" placeholder="Password" required>
+                <br>
+                <input type="text" name="i_name" placeholder="Name" required>
+                <br>
+                <input type="text" name="i_surname" placeholder="Surname" required>
+                <br>
+                <input type="text" name="i_email" placeholder="E-Mail" required>
+                <br>
+                <input type="text" name="i_department_id" placeholder="Department ID" required>
+                <br>
+                <input type="text" name="i_title" placeholder="Title" required>
+                <br>
+                <input type="submit" name="submit" value="Add">
+                <br>
+        </form>
+    </div>
+    <a href="{%url 'dbmanager-home' %}"> <p style="text-align:center">Back</p></a>
+</body>
+</html>

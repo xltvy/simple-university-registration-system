@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  	<title>Filter Course</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+        }
+        form { 
+            margin: 0 auto; 
+            width:250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
+            <h2> You can filter courses of a specific department with respect to its campus, and an inclusive range between minimum and maximum credits below.</h2>
+    </div>
+    {% if action_fail %}
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Course filter failed</h4>
+    </div>
+    {% endif %}
+    <div class="center">
+        <form id="filtercourseform" class="form-group" method="POST" action="{%url 'filterCourses' %}">
+                {%csrf_token%}
+                <br>
+                <label>Filter course with parameters:</label>
+                <br>
+                <input type="text" name="d_id" placeholder="Department ID" required>
+                <br>
+                <input type="text" name="campus" placeholder="Campus" required>
+                <br>
+                <input type="text" name="min_c" placeholder="Minimum Credits" required>
+                <br>
+                <input type="text" name="max_c" placeholder="Maximum Credits" required>
+                <br>
+                <input type="submit" name="submit" value="Filter">
+                <br>
+        </form>
+    </div>
+    <a href="{%url 'student-home' %}"> <p style="text-align:center">Back</p></a>
+</body>
+</html>

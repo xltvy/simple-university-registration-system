@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<title>Dashboard Student</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="wrapper">
+        <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
+            <h1> Welcome to SimpleBoun Course Registration Database.</h1>
+            <p>
+                Student Dashboard
+            </p>
+        </div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="d-flex justify-content-around" style="margin-top: 20px">           
+				{% block content %}
+                    <h2>Students' operations are listed below:</h2>
+                    <p class="lead">Select an operation you want to perform.</p>
+                    <a href="{% url 'view-all-courses' %}" class="btn btn-s1 btn-lg" role="button">View all courses</a>
+                    <a href="{% url 'take-course' %}" class="btn btn-s2 btn-lg" role="button">Add course</a>
+                    <a href="{% url 'view-taken-courses' %}" class="btn btn-s3 btn-lg" role="button">View taken courses</a>
+                    <a href="{% url 'search-course' %}" class="btn btn-s4 btn-lg" role="button">Search course</a>
+                    <a href="{% url 'filter-courses' %}" class="btn btn-s5 btn-lg" role="button">Filter courses</a>
+                {% endblock %}          
+			</div>
+		</div>
+	</div>
+    <a href="{%url 'welcome' %}"> <p style="text-align:center">Logout</p></a>
+</body>
+</html>

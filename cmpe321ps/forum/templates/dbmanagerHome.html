@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<title>Dashboard Database Manager</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="wrapper">
+        <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
+            <h1> Welcome to SimpleBoun Course Registration Database.</h1>
+            <p>
+                Database Manager Dashboard
+            </p>
+        </div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="d-flex justify-content-around" style="margin-top: 20px">           
+				{% block content %}
+                    <h2>Database managers' operations are listed below:</h2>
+                    <p class="lead">Select an operation you want to perform.</p>
+                    <a href="{% url 'add-student' %}" class="btn btn-db1 btn-lg" role="button">Add new student</a>
+                    <a href="{% url 'add-instructor' %}" class="btn btn-db2 btn-lg" role="button">Add new instructor</a>
+                    <a href="{% url 'delete-student' %}" class="btn btn-db3 btn-lg" role="button">Delete student</a>
+                    <a href="{% url 'update-ins-title' %}" class="btn btn-db4 btn-lg" role="button">Update instructor title</a>
+                    <a href="{% url 'view-students' %}" class="btn btn-db5 btn-lg" role="button">View all students</a>
+                    <a href="{% url 'view-instructors' %}" class="btn btn-db6 btn-lg" role="button">View all instructors</a>
+                    <a href="{% url 'view-stu-grade' %}" class="btn btn-db7 btn-lg" role="button">View grades of a student</a>
+                    <a href="{% url 'view-inst-course' %}" class="btn btn-db8 btn-lg" role="button">View courses of an instructor</a>
+                    <a href="{% url 'view-avg-grade' %}" class="btn btn-db9 btn-lg" role="button">View average grade of a course</a>
+                {% endblock %}          
+			</div>
+		</div>
+	</div>
+    <a href="{%url 'welcome' %}"> <p style="text-align:center">Logout</p></a>
+</body>
+</html>

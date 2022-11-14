@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  	<title>View Average Grade</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+        }
+        form { 
+            margin: 0 auto; 
+            width:250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
+            <h2> You can view the average grade of the course with the ID {{course_id}} below. If no one recevied a grade from the course {{course_id}} yet, then you will see None in the table.</h2>
+    </div>
+    {% if action_fail %}
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Viewing average grade of a instructor failed</h4>
+    </div>
+    {% endif %}
+    <div class="container">
+        <table class="center">
+            <colgroup>
+                <col span="1" style="width: 15%;">
+                <col span="1" style="width: 70%;">
+                <col span="1" style="width: 15%;">
+            </colgroup>
+            <tr>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Average Grade</th>
+            </tr>
+            {% for row in results %}
+            <tr>
+                {% for value in row %}
+                <td>
+                    {{value}}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <a href="{%url 'view-avg-grade' %}"> <p style="text-align:center">Back</p></a>
+</body>
+</html>
