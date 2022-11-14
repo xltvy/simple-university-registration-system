@@ -2,7 +2,7 @@
 
 This repository is for the third project of **CMPE 321 Introduction to Database Systems** course.
 
-As the scope of this project, I have built a simple university registration system, called SimpleBOUN (Simple Bogazici University), which is concerned with the instructors, students, courses, departments, grades, classrooms etc. Before the implementation, I have examined conceptual database design, drew ER diagrams, converted these ER diagrams into relational tables, and performed schema refinement for SimpleBounDB (Simple Bogazici University Database). Using this structure I have designed, I have implemented a course registration database with a web-based user interface.
+As the scope of this project, a simple university registration system is built, called SimpleBOUN (Simple Bogazici University), which is concerned with the instructors, students, courses, departments, grades, classrooms etc. Before the implementation, conceptual database design is examined, and drew ER diagrams, converted these ER diagrams into relational tables, and performed schema refinement for SimpleBounDB (Simple Bogazici University Database). Using this structure, designed, a course registration database with a web-based user interface is implemented.
 
 ## Table of Contents
 1. Project Requirements
